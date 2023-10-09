@@ -1,4 +1,4 @@
 ﻿  mugunghwa.c
-C:\Users\hwaseop\Documents\repos\jjuggumi_solution\jjuggumi\mugunghwa.c(48,4): warning C4013: 'move_manual'이(가) 정의되지 않았습니다. extern은 int형을 반환하는 것으로 간주합니다.
-C:\Users\hwaseop\Documents\repos\jjuggumi_solution\jjuggumi\mugunghwa.c(54,5): warning C4013: 'move_random'이(가) 정의되지 않았습니다. extern은 int형을 반환하는 것으로 간주합니다.
+C:\Users\hwaseop\Documents\repos\jjuggumi_solution\jjuggumi\mugunghwa.c(70,4): warning C4013: 'move_manual'이(가) 정의되지 않았습니다. extern은 int형을 반환하는 것으로 간주합니다.
+C:\Users\hwaseop\Documents\repos\jjuggumi_solution\jjuggumi\mugunghwa.c(76,5): warning C4013: 'move_random'이(가) 정의되지 않았습니다. extern은 int형을 반환하는 것으로 간주합니다.
   jjuggumi.vcxproj -> C:\Users\hwaseop\Documents\repos\jjuggumi_solution\x64\Debug\jjuggumi.exe

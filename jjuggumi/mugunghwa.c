@@ -13,9 +13,29 @@ void mugunghwa_init(void);
 
 int px[PLAYER_MAX], py[PLAYER_MAX], period[PLAYER_MAX];  // 각 플레이어 위치, 이동 주기
 
+void map_replace(char a, char b) {
+	// map의 a를 b로 변경
+		for (int i = 0; i < N_ROW; i++) {
+			for (int j = 0; j < N_COL; j++) {
+				if (back_buf[i][j] == a) {
+					back_buf[i][j] = b;
+				}
+			}
+		}
+}
+
 void mugunghwa_init(void) {
-	map_init(11, 35);
-	int start_x = 9 / 2 - n_player / 2;
+	int x_size;
+	if (n_player > 2) 
+		x_size = n_player - 2;
+	else x_size = 1;
+	
+	int init_x = 6 + x_size;
+
+	map_init(init_x, 35);
+	map_replace('#', '*');
+
+	int start_x = init_x / 2 - n_player / 2 -1;
 	int x = start_x, y ;
 	for (int i = 0; i < n_player; i++) {
 		// y축 오른쪽 정렬
@@ -27,11 +47,13 @@ void mugunghwa_init(void) {
 		// x세로 y가로
 		back_buf[px[i]][py[i]] = '0' + i;  // (0 .. n_player-1)
 	}
-	for(int i = 3;i<5+3;i++)
-		back_buf[i][1] = '@';
+	for(int i = 3;i< x_size +3;i++)
+		back_buf[i][1] = '#';
 
 	tick = 0;
 }
+
+//void 
 
 void mugunghwa(void) {
 	mugunghwa_init();
