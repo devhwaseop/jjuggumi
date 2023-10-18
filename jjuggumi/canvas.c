@@ -2,7 +2,9 @@
 #include <stdlib.h>
 #include <Windows.h>
 #include "jjuggumi.h"
+#include <stdlib.h>
 #include "canvas.h"
+#include <string.h>
 
 #define DIALOG_DURATION_SEC		4
 
@@ -76,6 +78,107 @@ void print_status(void) {
 	}
 }
 
-void dialog(char message[]) {
+int char_len(char message[]) {
+	int count = 0;
+	int size = ((int)sizeof(message) / sizeof(message[0]));
+	for (int i = 0; i < size; i++) {
+		if (message[i] == '\0') {
+			//count++;
+			return count;
+		}
+		else if (i != 0 && !(message[i - 1] & 0x80) && message[i] & 0x80) {
+			count += 1;
+		}
+		else {
+			count++;
+		}
+	}
+	return count;
+}
+/*
+// 전글자가 utf-8 이고,
+// 현재 글자가 아스키 코드인지 식별하는 함수
+int ASCII_id(char message[], int j, int start_message_index) {
+	if (j == start_message_index)
+		return 0;
+	if (message[j - start_message_index - 1] & 0x80 && !(message[j - start_message_index] & 0x80))
+		return 1;
+	return 0;
+}
+*/
+void dialog(char message[], int m_num) {
+	int mid_row = N_ROW/2 , mid_col = N_COL/2;
+	int s_row = mid_row - (m_num > 1 ? 3 : 2), s_col = 2;
+	int row = mid_row + (m_num < 3 ? 2 : 3)+1, col = N_COL - 2;
+	int num_r = mid_row, num_c = s_col + 2;
+	int str_start = num_c + 2;
+	int str_end = col - 2;
+	int full_str_range = str_end - str_start;
+	int message_range = (int)strlen(message); // char_len(message); 
 
+	for (int i = s_row; i < row; i++) {
+		for (int j = s_col; j < col; j++) {
+			if (i == s_row || i == row-1 || j == s_col || j == col-1)
+				front_buf[i][j] = '*';
+			else
+				front_buf[i][j] = ' ';
+			printxy(front_buf[i][j], i, j);
+		}
+	}
+
+	if (m_num == 1) {
+		message_range /= 2; 
+		full_str_range /= 2;
+		full_str_range -= message_range;
+		str_start += full_str_range;
+		gotoxy(mid_row, str_start);
+		printf("%s", message);
+	}
+	else {
+		int str_arr_n[4] = { 0 };
+		for (int i = 0; i < m_num;i++) {
+			int j = 0;
+			if (i != 0) {
+				j = str_arr_n[i]+1;
+			}
+			for (; j < message_range; j++) {
+				if (message[j] == '/') {
+					str_arr_n[i + 1] = j;
+					break;
+				}
+			}
+				if (str_arr_n[i + 1] == 0) {
+					str_arr_n[i + 1] = message_range;
+					break;
+			}
+		}
+		int start_x = mid_row - 1;
+		for (int i = 0; i < m_num; i++) {
+			message_range = (str_arr_n[i + 1]- str_arr_n[i]) /2; // char_len(message);
+			int f_s_range = full_str_range / 2;
+			f_s_range -= message_range;
+			int s_start = str_start + f_s_range;
+			for (int l = s_start; l < s_start + str_arr_n[i + 1]; l++) {
+				front_buf[start_x][l] = '?';
+			}
+			gotoxy(start_x, s_start);
+			int j = 0;
+			if (i != 0) {
+				j = str_arr_n[i]+1;
+			}
+			for (; j < str_arr_n[i + 1]; j++) {
+				printf("%c", message[j]);
+				// if (i == 0) { printf("%c", message[j]); }
+				// else{printf("%c", message[j]); }
+			}
+			start_x += 1;
+		}
+	}
+
+	// ASCLL '1' == 49
+	for (char i = '1'; i < DIALOG_DURATION_SEC + '1'; i++) {
+		front_buf[num_r][num_c] = i;
+		printxy(front_buf[num_r][num_c], num_r, num_c);
+		Sleep(1000);
+	}
 }

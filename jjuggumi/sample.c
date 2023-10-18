@@ -104,7 +104,11 @@ void sample(void) {
 				move_random(i, -1);
 			}
 		}
-
+		// dialog test code
+		// if (tick % 2000 == 0) {
+		// 	char message[100] = "테스트/입니다/가나다";
+		// 	dialog(message, 3);
+		// }
 		display();
 		Sleep(10);
 		tick += 10;
