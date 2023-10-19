@@ -3,13 +3,13 @@ C:\Users\hwaseop\Documents\repos\jjuggumi_solution\jjuggumi\mugunghwa.c(126,2): 
 C:\Users\hwaseop\Documents\repos\jjuggumi_solution\jjuggumi\mugunghwa.c(206,39): warning C4047: '=': 'char'의 간접 참조 수준이 'void *'과(와) 다릅니다.
 C:\Users\hwaseop\Documents\repos\jjuggumi_solution\jjuggumi\mugunghwa.c(223,4): warning C4013: 'draw'이(가) 정의되지 않았습니다. extern은 int형을 반환하는 것으로 간주합니다.
 C:\Users\hwaseop\Documents\repos\jjuggumi_solution\jjuggumi\mugunghwa.c(231,4): warning C4013: 'move_manual'이(가) 정의되지 않았습니다. extern은 int형을 반환하는 것으로 간주합니다.
-C:\Users\hwaseop\Documents\repos\jjuggumi_solution\jjuggumi\mugunghwa.c(281,3): warning C4013: 'dialog'이(가) 정의되지 않았습니다. extern은 int형을 반환하는 것으로 간주합니다.
-C:\Users\hwaseop\Documents\repos\jjuggumi_solution\jjuggumi\mugunghwa.c(321,13): warning C4047: '=': 'int *'의 간접 참조 수준이 'int'과(와) 다릅니다.
-C:\Users\hwaseop\Documents\repos\jjuggumi_solution\jjuggumi\mugunghwa.c(349,21): warning C4047: '함수': 'int *'의 간접 참조 수준이 'int **'과(와) 다릅니다.
-C:\Users\hwaseop\Documents\repos\jjuggumi_solution\jjuggumi\mugunghwa.c(349,21): warning C4024: 'm_game': 형식 및 실제 매개 변수 1의 형식이 서로 다릅니다.
-C:\Users\hwaseop\Documents\repos\jjuggumi_solution\jjuggumi\mugunghwa.c(349,29): warning C4047: '함수': 'int *'의 간접 참조 수준이 'int **'과(와) 다릅니다.
-C:\Users\hwaseop\Documents\repos\jjuggumi_solution\jjuggumi\mugunghwa.c(349,29): warning C4024: 'm_game': 형식 및 실제 매개 변수 2의 형식이 서로 다릅니다.
-C:\Users\hwaseop\Documents\repos\jjuggumi_solution\jjuggumi\mugunghwa.c(351,23): warning C4047: '>=': 'int *'의 간접 참조 수준이 'int'과(와) 다릅니다.
+C:\Users\hwaseop\Documents\repos\jjuggumi_solution\jjuggumi\mugunghwa.c(276,3): warning C4013: 'dialog'이(가) 정의되지 않았습니다. extern은 int형을 반환하는 것으로 간주합니다.
+C:\Users\hwaseop\Documents\repos\jjuggumi_solution\jjuggumi\mugunghwa.c(322,13): warning C4047: '=': 'int *'의 간접 참조 수준이 'int'과(와) 다릅니다.
+C:\Users\hwaseop\Documents\repos\jjuggumi_solution\jjuggumi\mugunghwa.c(350,21): warning C4047: '함수': 'int *'의 간접 참조 수준이 'int **'과(와) 다릅니다.
+C:\Users\hwaseop\Documents\repos\jjuggumi_solution\jjuggumi\mugunghwa.c(350,21): warning C4024: 'm_game': 형식 및 실제 매개 변수 1의 형식이 서로 다릅니다.
+C:\Users\hwaseop\Documents\repos\jjuggumi_solution\jjuggumi\mugunghwa.c(350,29): warning C4047: '함수': 'int *'의 간접 참조 수준이 'int **'과(와) 다릅니다.
+C:\Users\hwaseop\Documents\repos\jjuggumi_solution\jjuggumi\mugunghwa.c(350,29): warning C4024: 'm_game': 형식 및 실제 매개 변수 2의 형식이 서로 다릅니다.
+C:\Users\hwaseop\Documents\repos\jjuggumi_solution\jjuggumi\mugunghwa.c(352,23): warning C4047: '>=': 'int *'의 간접 참조 수준이 'int'과(와) 다릅니다.
 C:\Users\hwaseop\Documents\repos\jjuggumi_solution\jjuggumi\mugunghwa.c(193): warning C4172: 지역 변수 또는 임시: d_true의 주소를 반환하고 있습니다.
-C:\Users\hwaseop\Documents\repos\jjuggumi_solution\jjuggumi\mugunghwa.c(316): warning C4715: 'm_game': 모든 제어 경로에서 값을 반환하지는 않습니다.
+C:\Users\hwaseop\Documents\repos\jjuggumi_solution\jjuggumi\mugunghwa.c(317): warning C4715: 'm_game': 모든 제어 경로에서 값을 반환하지는 않습니다.
   jjuggumi.vcxproj -> C:\Users\hwaseop\Documents\repos\jjuggumi_solution\x64\Debug\jjuggumi.exe

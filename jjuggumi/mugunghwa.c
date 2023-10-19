@@ -254,11 +254,6 @@ bool m_player_a_or_d() {
 
 	if (dn_i != 0) {
 		n_alive -= dn_i;
-		for (int i = 3; i < n_player - 2 + 3; i++) {
-			back_buf[i][1] = '#';
-			//printxy(front_buf[i][1], i, 1);
-		}
-		draw();
 		//char end_string[100] = { NULL };
 		char *end_string;
 		end_string = (char*)malloc(sizeof(char) * 100);
@@ -309,7 +304,13 @@ bool m_game(int *y, int *print_time) {
 		*print_time = *print_time + 30;
 
 		if (!a_d) { return false; }
-
+		
+		for (int i = 3; i < n_player - 2 + 3; i++) {
+			back_buf[i][1] = '#';
+			//printxy(front_buf[i][1], i, 1);
+		}
+		draw();
+		
 		m_erase(y, print_time);
 		return true;
 	}
