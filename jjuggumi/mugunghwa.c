@@ -13,6 +13,15 @@
 
 void mugunghwa_init(void);
 void map_replace(char a, char b);
+bool m_pass_player_r(int player_p);
+bool no_p_xy(int x, int y, int dir);
+void m_erase(int* y, int* print_time);
+void m_auto_player(void);
+void m_print(int* y, int* print_time);
+int* player_overlap(void);
+void sim_strcat(char string[], char last_string[]);
+bool m_player_a_or_d(void);
+void mugunghwa(void);
 
 int px[PLAYER_MAX], py[PLAYER_MAX], period[PLAYER_MAX];  // 각 플레이어 위치, 이동 주기
 
@@ -35,7 +44,7 @@ void mugunghwa_init(void) {
 		y = N_COL-2;
 		px[i] = x;
 		py[i] = y;
-		period[i] = randint(140, 180);
+		period[i] = randint(123, 130);
 		// x세로 y가로
 		back_buf[px[i]][py[i]] = '0' + i;  // (0 .. n_player-1)
 	}
@@ -89,7 +98,20 @@ bool no_p_xy(int x, int y, int dir) {
 	bool a = (y == 1 && (x == 1 || x == N_ROW - 2));
 	bool b = ((dir == 1) ? !(x == 0 && y == 0) : 0);
 	bool c = !placable(x, y);
-	return a || b || c;
+	//bool d = 0;
+	for (int i = 0; i < PLAYER_MAX; i++) {
+		if ((px[i] == N_ROW - 3 && py[i] == 1)) {
+			if ((x == N_ROW - 3 || x == N_ROW - 2) && y == 2) {
+				return true;
+			}
+		}
+		else if ((px[i] == 2 && py[i] == 1)) {
+			if ((x == 1 || x == 2) && y == 2) {
+				return true;
+			}
+		}
+	}
+	return a || b || c; //|| d;
 }
 
 void m_move_random(int player, int dir) {
@@ -140,8 +162,7 @@ void m_erase(int *y, int *print_time) {
 	*print_time += 5;
 }
 
-// 움직인 플레이어를 true로 정의 후 배열로 반환
-void m_auto_player() {
+void m_auto_player(void) {
 	//int *player_move[PLAYER_MAX] = { 0 };
 	for (int i = 1; i < n_player; i++) {
 		// player 1 부터는 1/10확률중 임의로 7이 랜덤으로 반환시 사망
@@ -161,7 +182,7 @@ void m_print(int *y, int *print_time) {
 	else { printf("%s", m_g_h[*y/3]); }
 
 	*y = *y + 3;
-	int a = 2 + (*y / 3), b = a - ( *y / 3 - 4)*2 , c = randint(0, 1);
+	int a = 5 + (*y / 3), b = a - ( *y / 3 - 4)*2 , c = randint(0, 1);
 	switch (*y) {
 	// case 0:
 	case 3:
@@ -176,7 +197,7 @@ void m_print(int *y, int *print_time) {
 	}
 }
 
-int *player_overlap() {
+int *player_overlap(void) {
 	int d_true[PLAYER_MAX] = { 0 };
 	int p;
 
@@ -206,7 +227,7 @@ void sim_strcat(char string[], char last_string[]) {
 	string[string_num + last_string_num] = NULL;
 }
 
-bool m_player_a_or_d() {
+bool m_player_a_or_d(void) {
 	//int *p_move = m_auto_player();
 	int past_tick = tick;
 	int r_tick = randint(130, 250) * 10;
@@ -219,7 +240,7 @@ bool m_player_a_or_d() {
 
 	bool p_0 = player[0];
 	while (tick != past_tick + 3000){
-		if (tick == r_tick * 10) { 
+		if (tick == (past_tick + r_tick * 10)) {
 			draw();
 		}
 
@@ -250,8 +271,6 @@ bool m_player_a_or_d() {
 		}
 	}
 
-
-
 	if (dn_i != 0) {
 		n_alive -= dn_i;
 		//char end_string[100] = { NULL };
@@ -259,21 +278,29 @@ bool m_player_a_or_d() {
 		end_string = (char*)malloc(sizeof(char) * 100);
 		char str_main[50] = "탈락자는 아래와 같습니다./";
 		strcpy_s(end_string, 100, str_main);
+		int strnum = 2;
 		for (int i = 0; i < dn_i; i++) {
-			if (i == 0); {
+			if (i == 0 || i == 6); {
 				char *d = "0" + dead_now[i];
 				sim_strcat(end_string, d);
 			}
-			if (i != 0 ) {
+			if (i != 0) {
 				char str_dot[10] = ", ";
-				char *dd = "0" + dead_now[i];
+				char* dd = "0" + dead_now[i];
 				sim_strcat(end_string, str_dot);
 				sim_strcat(end_string, dd);
+			}
+			if (i == 5) {
+				char str_dot[10] = ", ";
+				sim_strcat(end_string, str_dot);
+				char sl[2] = { '/', NULL };
+				sim_strcat(end_string, sl);
+				strnum = 3;
 			}
 		}
 		char str_player[10] = " player";
 		sim_strcat(end_string, str_player);
-		dialog(end_string, 2);
+		dialog(end_string, strnum);
 		free(end_string);
 	}
 	return true; 
@@ -349,7 +376,7 @@ void mugunghwa(void) {
 
 		bool a_d = m_game(&mgh_y, &print_time);
 		if (!a_d) { break; }
-		else if (print_time >= 250) {
+		else if (mgh_y == 30 && print_time >= 250) {
 			// 종료 코드
 			//int n_en = 0;
 			char* end_string;
@@ -360,10 +387,13 @@ void mugunghwa(void) {
 			strcpy_s(end_string, 100, nu);
 			sim_strcat(end_string, str_main);
 			char str_num[20][2] = { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9" };
+			int start_tf = 0;
+			int strnum = 2;
 			for (int i = 0; i < n_player; i++) {
 				if (m_pass_player_r(i)) {
-					if (i == 0) {
+					if (start_tf == 0 || start_tf == 6) {
 						sim_strcat(end_string, str_num[i]);
+						start_tf++;
 						continue;
 					}
 					else {
@@ -372,6 +402,15 @@ void mugunghwa(void) {
 						sim_strcat(end_string, str_dot);
 						sim_strcat(end_string, str_num[i]);
 					}
+					if (start_tf == 5) {
+						char str_dot[10] = ", ";
+						//char *dd = &i;
+						sim_strcat(end_string, str_dot);
+						char sl[2] = { '/', NULL};
+						sim_strcat(end_string, sl);
+						strnum = 3;
+					}
+					start_tf++;
 				}
 				else{
 					player[i] = false;
@@ -381,7 +420,7 @@ void mugunghwa(void) {
 
 			char str_player[10] = " player";
 			sim_strcat(end_string, str_player);
-			dialog(end_string, 2);
+			dialog(end_string, strnum);
 			free(end_string);
 			display();
 			Sleep(200);

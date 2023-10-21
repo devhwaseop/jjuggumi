@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include <time.h>
+#include <string.h>
 #include "jjuggumi.h"
 
 #define	DATA_FILE	"jjuggumi.dat"
@@ -36,5 +37,6 @@ int main(void) {
 	//nightgame();
 	//juldarigi();
 	//jebi();
+	ending();
 	return 0;
 }

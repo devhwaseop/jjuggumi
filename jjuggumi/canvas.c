@@ -10,6 +10,7 @@
 
 void draw(void);
 void print_status(void);
+void dialog(char message[], int m_num);
 
 // (zero-base) row행, col열로 커서 이동
 void gotoxy(int row, int col) {
@@ -77,7 +78,7 @@ void print_status(void) {
 		printf("player %2d: %5s\n", p, player[p] ? "alive" : "DEAD");		
 	}
 }
-
+/*
 int char_len(char message[]) {
 	int count = 0;
 	int size = ((int)sizeof(message) / sizeof(message[0]));
@@ -95,7 +96,7 @@ int char_len(char message[]) {
 	}
 	return count;
 }
-/*
+
 // 전글자가 utf-8 이고,
 // 현재 글자가 아스키 코드인지 식별하는 함수
 int ASCII_id(char message[], int j, int start_message_index) {
@@ -106,6 +107,9 @@ int ASCII_id(char message[], int j, int start_message_index) {
 	return 0;
 }
 */
+
+// message[]를 받아서 '/'를 기준으로 나누어 줄바꿈을 해줌.
+// 줄 개수를 따로 "m_num" 변수로 받아서 사용됨. //시간관계와 편의상
 void dialog(char message[], int m_num) {
 	int mid_row = N_ROW/2 , mid_col = N_COL/2;
 	int s_row = mid_row - (m_num > 1 ? 3 : 2), s_col = 2;

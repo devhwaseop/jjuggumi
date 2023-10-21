@@ -1,0 +1,91 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <windows.h>
+
+
+void intro(void) {
+    int i, j;
+    // int a;
+    int num_steps = 100; // 움직일 총 단계 수
+
+    for (i = 0; i < 100; i++) {
+        system("cls"); // 화면을 지우는 명령 (Windows)
+
+        if (i == 9) {
+            printf("                 (0_0)??????");
+            Sleep(1500);
+            printf("\n");
+            system("cls");
+
+            printf("JJJJ   U   U   GGGG    GGGG    U   U    M   M     II     ????\n");
+            printf("  J    U   U  G       G        U   U    MM MM     II     ????\n");
+            printf("  J    U   U  G  GGG  G  GGG   U   U    M M M     II     ????\n");
+            printf("  J    U   U  G    G  G    G   U   U    M   M     II     ????\n");
+            printf("JJJ     UUU    GGGG   GGGGG    UUUUU    M   M     II     ????\n");
+            Sleep(1500);
+            system("cls");
+
+            printf("                                _＿＿＿    \n");
+            printf("                              <　      >  \n");
+            printf("        ♪.¸♬ .¸♬             < 　　     > \n");
+            printf("                            <  　 　     >\n");
+            printf("                            ｜  　      ｜\n");
+            printf("                            ｜ ●　  ●   ｜\n");
+            printf("                            ｜    ▽　   ｜\n");
+            printf("         ミ[°°]ミ           ｜          ｜\n");
+            printf("                            ｜          ｜\n");
+            printf("                            ｜          ｜\n");
+            printf("                            ｜＿＿＿＿＿｜\n");
+            printf("                             )))))))))))) \n");
+            printf("                             )))))))))))) \n");
+            break;
+        }
+        for (j = 0; j <= i; j++) {
+
+            printf(" "); // 빈 칸 추가
+            if (i == 10 && j == 10) {
+
+
+            }
+
+        }
+        printf("(^ ∇ ^)\n");
+        Sleep(300); // 각 스텝 간의 시간 간격
+    }
+
+    printf("쭈꾸미 게임 시작!>");
+
+
+    getchar();
+
+}
+
+void ending(void) {
+    //if == 한명 남았다면?
+    //0,1,2,3,4번 우승했을때
+    //?번 우승
+    //큰 돼지저금통 아스키아트 구현한다음 위에 ?번 우승! 
+    printf(" .--.   .--.\n");
+    printf(" <  >-~-<  >\n");
+    printf("  )'a   a'(  ♪.¸♬ .¸♬♪야미\n");
+    printf("  (._____.)\n");
+    printf("   (_o_o_)\n");
+    printf("    -----\n");
+        
+    
+
+
+   
+}
+
+int main(void) {
+    intro();
+    ending();
+    
+
+                                                                              
+
+
+
+    return 0;
+}
