@@ -1,0 +1,32 @@
+﻿  canvas.c
+  intro_ending.c
+C:\Users\hwaseop\Documents\repos\jjuggumi\source\intro_ending.c(70,5): warning C4013: 'map_replace'이(가) 정의되지 않았습니다. extern은 int형을 반환하는 것으로 간주합니다.
+C:\Users\hwaseop\Documents\repos\jjuggumi\source\intro_ending.c(71,5): warning C4013: 'draw'이(가) 정의되지 않았습니다. extern은 int형을 반환하는 것으로 간주합니다.
+C:\Users\hwaseop\Documents\repos\jjuggumi\source\intro_ending.c(91,9): warning C4013: 'sim_strcat'이(가) 정의되지 않았습니다. extern은 int형을 반환하는 것으로 간주합니다.
+C:\Users\hwaseop\Documents\repos\jjuggumi\source\intro_ending.c(90,14): warning C4047: '초기화 중': 'char'의 간접 참조 수준이 'void *'과(와) 다릅니다.
+C:\Users\hwaseop\Documents\repos\jjuggumi\source\intro_ending.c(108,22): warning C4047: '초기화 중': 'char'의 간접 참조 수준이 'void *'과(와) 다릅니다.
+C:\Users\hwaseop\Documents\repos\jjuggumi\source\intro_ending.c(114,22): warning C4047: '초기화 중': 'char'의 간접 참조 수준이 'void *'과(와) 다릅니다.
+  jjuggumi.c
+C:\Users\hwaseop\Documents\repos\jjuggumi\source\jjuggumi.c(34,2): warning C4013: 'intro'이(가) 정의되지 않았습니다. extern은 int형을 반환하는 것으로 간주합니다.
+C:\Users\hwaseop\Documents\repos\jjuggumi\source\jjuggumi.c(40,2): warning C4013: 'ending'이(가) 정의되지 않았습니다. extern은 int형을 반환하는 것으로 간주합니다.
+  keyin.c
+  mugunghwa.c
+C:\Users\hwaseop\Documents\repos\jjuggumi\source\mugunghwa.c(148,2): warning C4013: 'move_tail'이(가) 정의되지 않았습니다. extern은 int형을 반환하는 것으로 간주합니다.
+C:\Users\hwaseop\Documents\repos\jjuggumi\source\mugunghwa.c(227,39): warning C4047: '=': 'char'의 간접 참조 수준이 'void *'과(와) 다릅니다.
+C:\Users\hwaseop\Documents\repos\jjuggumi\source\mugunghwa.c(244,4): warning C4013: 'draw'이(가) 정의되지 않았습니다. extern은 int형을 반환하는 것으로 간주합니다.
+C:\Users\hwaseop\Documents\repos\jjuggumi\source\mugunghwa.c(252,4): warning C4013: 'move_manual'이(가) 정의되지 않았습니다. extern은 int형을 반환하는 것으로 간주합니다.
+C:\Users\hwaseop\Documents\repos\jjuggumi\source\mugunghwa.c(303,3): warning C4013: 'dialog'이(가) 정의되지 않았습니다. extern은 int형을 반환하는 것으로 간주합니다.
+C:\Users\hwaseop\Documents\repos\jjuggumi\source\mugunghwa.c(296,10): warning C4047: '초기화 중': 'char'의 간접 참조 수준이 'void *'과(와) 다릅니다.
+C:\Users\hwaseop\Documents\repos\jjuggumi\source\mugunghwa.c(349,13): warning C4047: '=': 'int *'의 간접 참조 수준이 'int'과(와) 다릅니다.
+C:\Users\hwaseop\Documents\repos\jjuggumi\source\mugunghwa.c(377,21): warning C4047: '함수': 'int *'의 간접 참조 수준이 'int **'과(와) 다릅니다.
+C:\Users\hwaseop\Documents\repos\jjuggumi\source\mugunghwa.c(377,21): warning C4024: 'm_game': 형식 및 실제 매개 변수 1의 형식이 서로 다릅니다.
+C:\Users\hwaseop\Documents\repos\jjuggumi\source\mugunghwa.c(377,29): warning C4047: '함수': 'int *'의 간접 참조 수준이 'int **'과(와) 다릅니다.
+C:\Users\hwaseop\Documents\repos\jjuggumi\source\mugunghwa.c(377,29): warning C4024: 'm_game': 형식 및 실제 매개 변수 2의 형식이 서로 다릅니다.
+C:\Users\hwaseop\Documents\repos\jjuggumi\source\mugunghwa.c(379,18): warning C4047: '==': 'int *'의 간접 참조 수준이 'int'과(와) 다릅니다.
+C:\Users\hwaseop\Documents\repos\jjuggumi\source\mugunghwa.c(379,38): warning C4047: '>=': 'int *'의 간접 참조 수준이 'int'과(와) 다릅니다.
+C:\Users\hwaseop\Documents\repos\jjuggumi\source\mugunghwa.c(409,12): warning C4047: '초기화 중': 'char'의 간접 참조 수준이 'void *'과(와) 다릅니다.
+  sample.c
+  코드를 생성하고 있습니다...
+C:\Users\hwaseop\Documents\repos\jjuggumi\source\mugunghwa.c(214): warning C4172: 지역 변수 또는 임시: d_true의 주소를 반환하고 있습니다.
+C:\Users\hwaseop\Documents\repos\jjuggumi\source\mugunghwa.c(344): warning C4715: 'm_game': 모든 제어 경로에서 값을 반환하지는 않습니다.
+  jjuggumi.vcxproj -> C:\Users\hwaseop\Documents\repos\jjuggumi\x64\Debug\jjuggumi.exe
