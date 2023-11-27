@@ -24,8 +24,8 @@
     <ClCompile Include="source\jjuggumi.c" />
     <ClCompile Include="source\keyin.c" />
     <ClCompile Include="source\mugunghwa.c" />
+    <ClCompile Include="source\nightgame.c" />
     <ClCompile Include="source\sample.c" />
-    <ClCompile Include="nightgame.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\canvas.h" />

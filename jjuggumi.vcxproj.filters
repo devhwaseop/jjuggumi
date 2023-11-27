@@ -33,7 +33,7 @@
     <ClCompile Include="source\sample.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="nightgame.c">
+    <ClCompile Include="source\nightgame.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
