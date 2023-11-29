@@ -12,7 +12,6 @@
 #define DIR_RIGHT	3
 
 void mugunghwa_init(void);
-void map_replace(char a, char b);
 bool m_pass_player_r(int player_p);
 bool no_p_xy(int x, int y, int dir);
 void m_erase(int* y, int* print_time);
@@ -54,19 +53,10 @@ void mugunghwa_init(void) {
 	tick = 0;
 }
 
-void map_replace(char a, char b) {
-	// map의 a를 b로 변경
-	for (int i = 0; i < N_ROW; i++) {
-		for (int j = 0; j < N_COL; j++) {
-			if (back_buf[i][j] == a) {
-				back_buf[i][j] = b;
-			}
-		}
-	}
-}
+
 
 bool m_pass_player_r(int player_p) {
-	if(!player[player_p])
+	if(!player[player_p].is_alive)
 		return false;
 
 	int p_px[PLAYER_MAX] = {0};
@@ -238,7 +228,7 @@ bool m_player_a_or_d(void) {
 		past_y[i] = py[i];
 	}
 
-	bool p_0 = player[0];
+	bool p_0 = player[0].is_alive;
 	while (tick != past_tick + 3000){
 		if (tick == (past_tick + r_tick * 10)) {
 			draw();
@@ -264,7 +254,7 @@ bool m_player_a_or_d(void) {
 			continue;
 		
 		if (p_overlap[i]) {
-			player[i] = false;
+			player[i].is_alive = false;
 			back_buf[px[i]][py[i]] = ' ';
 			dead_now[dn_i] = i;
 			dn_i += 1;
@@ -357,19 +347,19 @@ void mugunghwa(void) {
 		if (key == K_QUIT) {
 			break;
 		}
-		else if (player[0] && key != K_UNDEFINED) {
+		else if (player[0].is_alive && key != K_UNDEFINED) {
 			move_manual(key);
 		}
 
 		// player 1 부터는 랜덤으로 움직임(8방향)
 		int map_mid = N_COL / 2 -1;
 		for (int i = 1; i < n_player; i++) {
-			if(player[i] && py[i] <= map_mid) {
+			if(player[i].is_alive && py[i] <= map_mid) {
 				if (tick % (period[i] / 2) <= 10) {
 					m_move_random(i, -1);
 				}
 			}
-			else if (player[i] && tick % period[i] == 0) {
+			else if (player[i].is_alive && tick % period[i] == 0) {
 				m_move_random(i, -1);
 			}
 		}
@@ -413,7 +403,7 @@ void mugunghwa(void) {
 					start_tf++;
 				}
 				else{
-					player[i] = false;
+					player[i].is_alive = false;
 					n_alive -= 1;
 				}
 			}

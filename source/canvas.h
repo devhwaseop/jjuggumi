@@ -19,7 +19,8 @@ char back_buf[ROW_MAX][COL_MAX];
 int N_ROW, N_COL;
 
 void map_init(int n_row, int n_col);
-//void dialog(char message[], 2);
+void map_replace(char a, char b);
+void dialog(char message[], int m_num);
 bool placable(int row, int col);
 void display(void);
 void gotoxy(int x, int y);

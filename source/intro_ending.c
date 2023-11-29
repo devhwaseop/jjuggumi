@@ -74,7 +74,7 @@ void ending(void) {
     int alive_p_num = 0;
     int alive_player[PLAYER_MAX] = { 0 };
     for (int i = 0; i < PLAYER_MAX; i++) {
-        if (player[i] == true) {
+        if (player[i].is_alive == true) {
             alive_player[alive_p_num] = i;
             alive_p_num += 1;
         }

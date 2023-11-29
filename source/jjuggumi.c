@@ -79,12 +79,12 @@ int main(void) {
 		printf("%s", "file open error");
 		return 0;
 	}
-	intro();
+	//intro();
 	//sample();
 	//mugunghwa();
 	nightgame();
 	//juldarigi();
 	//jebi();
-	ending();
+	//ending();
 	return 0;
 }

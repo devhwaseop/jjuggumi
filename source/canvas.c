@@ -44,6 +44,17 @@ void map_init(int n_row, int n_col) {
 	}
 }
 
+void map_replace(char a, char b) {
+	// map의 a를 b로 변경
+	for (int i = 0; i < N_ROW; i++) {
+		for (int j = 0; j < N_COL; j++) {
+			if (back_buf[i][j] == a) {
+				back_buf[i][j] = b;
+			}
+		}
+	}
+}
+
 // back_buf[row][col]이 이동할 수 있는 자리인지 확인하는 함수
 bool placable(int row, int col) {
 	if (row < 0 || row >= N_ROW ||
