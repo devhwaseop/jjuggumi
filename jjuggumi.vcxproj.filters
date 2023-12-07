@@ -30,10 +30,10 @@
     <ClCompile Include="source\mugunghwa.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="source\sample.c">
+    <ClCompile Include="source\nightgame.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="source\nightgame.c">
+    <ClCompile Include="source\sample.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
@@ -47,10 +47,5 @@
     <ClInclude Include="source\keyin.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="source\jjuggumi.dat">
-      <Filter>리소스 파일</Filter>
-    </None>
   </ItemGroup>
 </Project>

@@ -32,8 +32,8 @@ int jjuggumi_init(void) {
 int jjuggumi_init() {
 	srand((unsigned int)time(NULL));
 
-	printf("플레이어 수: ");
-	scanf_s("%d", &n_player);
+	//printf("플레이어 수: ");
+	//scanf_s("%d", &n_player);
 
 	n_alive = n_player;
 	for (int i = 0; i < n_player; i++) {
